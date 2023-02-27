@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_PIIUUKw3Ee2JxoGjFTp9MA" targetNamespace="http://tns.tibco.com/bw/composite/sampleBWCEREST" name="sampleBWCEREST" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_KEEIEKw4Ee2JxoGjFTp9MA" name="sendgreetings" promote="ComponentSendGreetings/sendgreetings">
+    <sca:interface.wsdl xmi:id="_KEeXwKw4Ee2JxoGjFTp9MA" interface="http://xmlns.example.com/20230214125109PLT#wsdl.interface(sendgreetings)" scaext:wsdlLocation="../Processes/samplebwcerest/SendGreetings.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_KFOlsKw4Ee2JxoGjFTp9MA" name="RestService" path="/sendgreetings" docBasePath="http://localhost:7777/sampleBWCEREST" docResourcePath="SendGreetings" basePath="/" connector="samplebwcerest.SendGreetings" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/samplebwcerest.SendGreetings-SendGreetings.json">
+      <operation xmi:id="_KFcoIKw4Ee2JxoGjFTp9MA" operationName="get" nickname="get-sendgreetings" httpMethod="GET" notes="getSendGreetings" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_KHkvEKw4Ee2JxoGjFTp9MA"/>
+      <advancedConfig xmi:id="_KFV6cKw4Ee2JxoGjFTp9MA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_KFcoIaw4Ee2JxoGjFTp9MA" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_ScH0oKw3Ee2JxoGjFTp9MA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_SdJvYKw3Ee2JxoGjFTp9MA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Sda1IKw3Ee2JxoGjFTp9MA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Sdsh8Kw3Ee2JxoGjFTp9MA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_SeAD8Kw3Ee2JxoGjFTp9MA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_SeRJsKw3Ee2JxoGjFTp9MA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_SehoYKw3Ee2JxoGjFTp9MA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_j-7AELKlEe20Cp90m339aA" name="Hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_kDKm4LKlEe20Cp90m339aA" name="Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_kGwGYLKlEe20Cp90m339aA" name="Environment" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_KDYyoKw4Ee2JxoGjFTp9MA" name="ComponentSendGreetings" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_KDZZsKw4Ee2JxoGjFTp9MA" processName="samplebwcerest.SendGreetings"/>
+    <sca:service xmi:id="_KD4h4Kw4Ee2JxoGjFTp9MA" name="sendgreetings">
+      <sca:interface.wsdl xmi:id="_KD6-IKw4Ee2JxoGjFTp9MA" interface="http://xmlns.example.com/20230214125109PLT#wsdl.interface(sendgreetings)" scaext:wsdlLocation="../Processes/samplebwcerest/SendGreetings.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

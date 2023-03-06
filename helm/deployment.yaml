@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.appName}}
+  {{- if .Values.deploymentAnnotations}}  
+  annotations: {{- toYaml .Values.deploymentAnnotations | nindent 6}}
+  {{- end }}   
+  {{- if .Values.customLabels }} 
+  labels: {{- toYaml .Values.customLabels | nindent 6 }} 
+  {{- end }}
+spec:
+  replicas: {{.Values.replicaCount}}
+  selector:
+  {{- if .Values.customLabels }} 
+    matchLabels: {{- toYaml .Values.customLabels | nindent 6 }} 
+   {{- end }}    
+  {{- if .Values.updateStrategy }}  
+  strategy:{{- toYaml .Values.updateStrategy | nindent 6 }} 
+  {{- end }}  
+  template:
+    metadata:
+    {{- if .Values.customLabels }} 
+      labels:{{- toYaml .Values.customLabels | nindent 10 }} 
+   {{- end }}
+    spec:
+      containers:
+        - name: {{.Values.appName}}
+          image: {{.Values.image.registry}}/{{.Values.image.repository}}:{{.Values.image.tag}}
+          envFrom:
+          - configMapRef:
+                name: {{.Values.appName}}-cfg
+          ports:
+            {{- with .Values.ports}}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}           

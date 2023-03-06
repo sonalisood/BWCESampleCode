@@ -1,0 +1,54 @@
+image:
+  registry: 'tftibautoreg.azurecr.io'
+  repository: samplebwcerest
+  tag: v2
+appName: samplebwcerest
+deploymentAnnotations:
+  techOwner: biman.bisws@cognizant.com,sonali.sood@cognizant.com, soumyadip.kundu3@cognizant.com
+  buildno: build-01
+customLabels:
+  app: samplebwcerest
+  tier: middleware
+  environment: DEV
+  projectId: prj-001
+  costCenter: cs-001
+updateStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 25%
+ports:
+- containerPort: 8080
+  name: application
+  protocol: TCP
+replicaCount: 1
+resources:
+  requests:
+    memory: '512Mi'
+    cpu: '60m'
+  limits:
+    memory: '1024Mi'
+    cpu: '600m'
+livenessProbe:
+  initialDelaySeconds: 120
+  periodSeconds: 10
+  timeoutSeconds: 3
+  failureThreshold: 5
+  successThreshold: 1
+  tcpSocket:
+    port: 7777
+readinessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 3
+  failureThreshold: 1
+  successThreshold: 5
+  tcpSocket:
+    port: 7777
+service:
+  type: LoadBalancer
+  nodePorts:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: application

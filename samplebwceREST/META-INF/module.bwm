@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_K1-DYLpgEe20_8SxtlPAKQ" targetNamespace="http://tns.tibco.com/bw/composite/samplebwceREST" name="samplebwceREST" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_eULvkbpgEe20_8SxtlPAKQ" name="welcome" promote="ComponentProcess/welcome">
+    <sca:interface.wsdl xmi:id="_eUkKELpgEe20_8SxtlPAKQ" interface="http://xmlns.example.com/20230304131256PLT#wsdl.interface(welcome)" scaext:wsdlLocation="../Processes/samplebwcerest/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_eU4TILpgEe20_8SxtlPAKQ" name="RestService" path="/welcome" docBasePath="http://localhost:7777/samplebwceREST" docResourcePath="welcome" basePath="/" connector="samplebwcerest.welcome" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/samplebwcerest.Process-welcome.json">
+      <operation xmi:id="_eVBdELpgEe20_8SxtlPAKQ" operationName="post" nickname="post-welcome" httpMethod="POST" notes="postWelcome" responseStyle="element" requestStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_eVBdEbpgEe20_8SxtlPAKQ" operationName="get" nickname="get-welcome" httpMethod="GET" notes="getWelcome" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_eWEl8LpgEe20_8SxtlPAKQ"/>
+      <advancedConfig xmi:id="_eU4TIbpgEe20_8SxtlPAKQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_eVBdErpgEe20_8SxtlPAKQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_Mi104LpgEe20_8SxtlPAKQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MjSg0LpgEe20_8SxtlPAKQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MjWLMLpgEe20_8SxtlPAKQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MjbqwLpgEe20_8SxtlPAKQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MjbqwbpgEe20_8SxtlPAKQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_MjlbwLpgEe20_8SxtlPAKQ" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_MjulsLpgEe20_8SxtlPAKQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_hNCMALpgEe20_8SxtlPAKQ" name="hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRX5cLpgEe20_8SxtlPAKQ" name="port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hVK0ULpgEe20_8SxtlPAKQ" name="environment" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_LtSs8LpgEe20_8SxtlPAKQ" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_LtSs8bpgEe20_8SxtlPAKQ" processName="samplebwcerest.Process"/>
+    <sca:service xmi:id="_eUB-kLpgEe20_8SxtlPAKQ" name="welcome">
+      <sca:interface.wsdl xmi:id="_eULvkLpgEe20_8SxtlPAKQ" interface="http://xmlns.example.com/20230304131256PLT#wsdl.interface(welcome)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_ucQJ4rphEe20_8SxtlPAKQ" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ucQJ47phEe20_8SxtlPAKQ" processName="samplebwcerest.Activator"/>
+  </sca:component>
+</sca:composite>
